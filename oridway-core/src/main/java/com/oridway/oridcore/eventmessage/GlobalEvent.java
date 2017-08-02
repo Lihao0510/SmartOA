@@ -1,4 +1,4 @@
-package com.oridway.oridcore.EventMessage;
+package com.oridway.oridcore.eventmessage;
 
 
 /**

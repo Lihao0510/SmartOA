@@ -2,8 +2,9 @@ package com.oridway.oridcore.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
-import com.oridway.oridcore.EventMessage.GlobalEvent;
+import com.oridway.oridcore.eventmessage.GlobalEvent;
 import com.oridway.oridcore.exception.CrashHandler;
 import com.oridway.oridcore.utils.AssetUtil;
 import com.oridway.oridcore.utils.LogUtil;
@@ -41,11 +42,17 @@ public class CoreApplication extends Application {
     public void initThirdPartyUtil(GlobalEvent event) {
         if (event.eventType == GlobalEvent.WELCOME_PAGE_LOAD_COMPLETED) {
             LogUtil.debugLog("initThirdPartyUtil");
-
             Realm.init(applicationContext);
             CrashHandler.getInstance().init(applicationContext);
             EventBus.getDefault().post(GlobalEvent.newEvent(GlobalEvent.EXTERNAL_COMPONENTS_LOAD_COMPLETED));
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+
     }
 
     private void initLocalSetting() {
