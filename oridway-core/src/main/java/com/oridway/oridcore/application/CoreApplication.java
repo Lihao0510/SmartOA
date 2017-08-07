@@ -4,8 +4,19 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.joanzapata.iconify.Iconify;
+import com.joanzapata.iconify.fonts.EntypoModule;
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.joanzapata.iconify.fonts.IoniconsModule;
+import com.joanzapata.iconify.fonts.MaterialCommunityModule;
+import com.joanzapata.iconify.fonts.MaterialModule;
+import com.joanzapata.iconify.fonts.MeteoconsModule;
+import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
+import com.joanzapata.iconify.fonts.TypiconsModule;
+import com.joanzapata.iconify.fonts.WeathericonsModule;
 import com.oridway.oridcore.eventmessage.GlobalEvent;
 import com.oridway.oridcore.exception.CrashHandler;
+import com.oridway.oridcore.icon.SmartIconModule;
 import com.oridway.oridcore.utils.AssetUtil;
 import com.oridway.oridcore.utils.LogUtil;
 
@@ -24,7 +35,7 @@ import io.realm.Realm;
 public class CoreApplication extends Application {
 
     private static Context applicationContext;
-    private HashMap<String, String> appProperties;
+    private static HashMap<String, String> appProperties;
 
     @Override
     public void onCreate() {
@@ -43,7 +54,15 @@ public class CoreApplication extends Application {
         if (event.eventType == GlobalEvent.WELCOME_PAGE_LOAD_COMPLETED) {
             LogUtil.debugLog("initThirdPartyUtil");
             Realm.init(applicationContext);
-            CrashHandler.getInstance().init(applicationContext);
+            Iconify.with(new FontAwesomeModule())
+                    .with(new EntypoModule())
+                    .with(new TypiconsModule())
+                    .with(new MaterialModule())
+                    .with(new MaterialCommunityModule())
+                    .with(new MeteoconsModule())
+                    .with(new WeathericonsModule())
+                    .with(new SimpleLineIconsModule())
+                    .with(new IoniconsModule());
             EventBus.getDefault().post(GlobalEvent.newEvent(GlobalEvent.EXTERNAL_COMPONENTS_LOAD_COMPLETED));
         }
     }
@@ -60,5 +79,10 @@ public class CoreApplication extends Application {
         appProperties = new HashMap<>();
         applicationContext = getApplicationContext();
         AssetUtil.loadPropsFromAsset(applicationContext, "app_env.properties", appProperties);
+        LogUtil.debugLog("initLocalSettingFinished");
+    }
+
+    public static String getAppConfig(String configKey) {
+        return appProperties.get(configKey);
     }
 }
