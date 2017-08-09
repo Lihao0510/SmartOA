@@ -1,5 +1,6 @@
 package com.oridway.oridwayoa.activity;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -20,9 +21,6 @@ public class WelcomeActivity extends BaseActivity {
 
     private static final String PREF_NAME = "appsys_prefs";
 
-    @BindView(R.id.tv_welcome)
-    TextView welcomeText;
-
     @Override
     protected int setLayoutRes() {
         return R.layout.activity_welcome;
@@ -37,13 +35,18 @@ public class WelcomeActivity extends BaseActivity {
     }
 
     private void initWelcomeEvents() {
-        welcomeText.setText("我艹,成功了!");
         int launchTimes = PrefUtil.getIntProperty(getApplicationContext(), PREF_NAME, "LaunchTimes");
         if (launchTimes == 0) {
             LogUtil.debugLog("这是第一次登录,需要加载引导页!");
         } else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    MainActivity.startActivity(WelcomeActivity.this);
+                    WelcomeActivity.this.finish();
+                }
+            }, 2400);
             LogUtil.debugLog("这不是第一次登录,直接进入主页!");
-            MainActivity.startActivity(this);
         }
         PrefUtil.setIntProperty(getApplicationContext(), PREF_NAME, "LaunchTimes", 1 + launchTimes);
     }

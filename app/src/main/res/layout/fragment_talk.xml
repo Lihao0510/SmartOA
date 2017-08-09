@@ -7,11 +7,57 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="21dp"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="聊天" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_talkswitch_dialog"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_talk_left_header_selected"
+                android:gravity="center"
+                android:text="对话列表"
+                android:textColor="@color/colorPrimary" />
+
+
+            <TextView
+                android:id="@+id/tv_talkswitch_contact"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_talk_right_header_normal"
+                android:gravity="center"
+                android:text="联系人"
+                android:textColor="@color/pureWhite" />
+
+        </LinearLayout>
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="{entypo-magnifying-glass}"
+            android:textColor="@color/selector_icon_button"
+            android:textSize="@dimen/icon_small" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_talk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

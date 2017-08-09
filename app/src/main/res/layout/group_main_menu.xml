@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.oridway.oridcore.widge.CollapseLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_button_box"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,8 +17,10 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_project"
             android:layout_width="65dp"
             android:layout_height="75dp"
+            android:background="@drawable/selector_background_whitebutton"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -41,8 +44,10 @@
             android:layout_weight="2" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_meeting"
             android:layout_width="65dp"
             android:layout_height="75dp"
+            android:background="@drawable/selector_background_whitebutton"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -66,8 +71,10 @@
             android:layout_weight="2" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_customer"
             android:layout_width="65dp"
             android:layout_height="75dp"
+            android:background="@drawable/selector_background_whitebutton"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -91,8 +98,10 @@
             android:layout_weight="2" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_finance"
             android:layout_width="65dp"
             android:layout_height="75dp"
+            android:background="@drawable/selector_background_whitebutton"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -128,9 +137,11 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_hr"
             android:layout_width="65dp"
             android:layout_height="75dp"
             android:gravity="center"
+            android:background="@drawable/selector_background_whitebutton"
             android:orientation="vertical">
 
             <ImageView
@@ -153,8 +164,10 @@
             android:layout_weight="2" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_supplier"
             android:layout_width="65dp"
             android:layout_height="75dp"
+            android:background="@drawable/selector_background_whitebutton"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -178,8 +191,10 @@
             android:layout_weight="2" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_equip"
             android:layout_width="65dp"
             android:layout_height="75dp"
+            android:background="@drawable/selector_background_whitebutton"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -203,8 +218,10 @@
             android:layout_weight="2" />
 
         <LinearLayout
+            android:id="@+id/ll_menu_document"
             android:layout_width="65dp"
             android:layout_height="75dp"
+            android:background="@drawable/selector_background_whitebutton"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -229,5 +246,10 @@
 
     </LinearLayout>
 
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/nearlyWhite" />-->
 
-</LinearLayout>
+
+</com.oridway.oridcore.widge.CollapseLayout>

@@ -57,8 +57,8 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_button_group"
+    <com.oridway.oridcore.widge.CollapseLayout
+        android:id="@+id/cl_button_group"
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:background="@color/colorPrimary"
@@ -174,190 +174,28 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-    </LinearLayout>
+    </com.oridway.oridcore.widge.CollapseLayout>
+
+    <include layout="@layout/group_main_menu" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/almostWhite" />
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/nearlyWhite" />
 
-    <ScrollView
-        android:id="@+id/sv_content"
+    <com.jwenfeng.library.pulltorefresh.PullToRefreshLayout
+        android:id="@+id/ptr_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:overScrollMode="never" />
 
-            <include layout="@layout/group_main_menu" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:text="我是一个子对象!"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_h2" />
-
-        </LinearLayout>
-
-
-    </ScrollView>
+    </com.jwenfeng.library.pulltorefresh.PullToRefreshLayout>
 
 
 </LinearLayout>

@@ -1,26 +1,33 @@
 package com.oridway.oridwayoa.fragment;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.Scroller;
 
 import com.joanzapata.iconify.widget.IconTextView;
+import com.jwenfeng.library.pulltorefresh.BaseRefreshListener;
+import com.jwenfeng.library.pulltorefresh.PullToRefreshLayout;
+import com.oridway.oridcore.utils.LogUtil;
 import com.oridway.oridcore.utils.ToastUtil;
+import com.oridway.oridcore.widge.CollapseLayout;
 import com.oridway.oridwayoa.R;
+import com.oridway.oridwayoa.contract.MainFragmentContractor;
+import com.oridway.oridwayoa.presenter.MainFragmentPresenterImpl;
 
 import butterknife.BindView;
-import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
  * Created by lihao on 2017/8/5.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements MainFragmentContractor.MainFragmentView, View.OnClickListener {
 
     @BindView(R.id.icon_alarm)
     IconTextView alarmIcon;
@@ -34,10 +41,34 @@ public class HomeFragment extends BaseFragment {
     LinearLayout buttonFankui;
     @BindView(R.id.ll_button_chongzhi)
     LinearLayout buttonChongzhi;
-    @BindView(R.id.ll_button_group)
-    LinearLayout buttonGroupLayout;
-    @BindView(R.id.sv_content)
-    ScrollView contentScrollView;
+    @BindView(R.id.cl_button_group)
+    CollapseLayout buttonGroupLayout;
+    @BindView(R.id.cl_button_box)
+    CollapseLayout menuGroupLayout;
+    @BindView(R.id.rv_main)
+    RecyclerView mainRecyclerView;
+    @BindView(R.id.ptr_main)
+    PullToRefreshLayout ptrLayout;
+
+    @BindView(R.id.ll_menu_project)
+    LinearLayout menuProject;
+    @BindView(R.id.ll_menu_meeting)
+    LinearLayout menuMeeting;
+    @BindView(R.id.ll_menu_customer)
+    LinearLayout menuCustomer;
+    @BindView(R.id.ll_menu_finance)
+    LinearLayout menuFinance;
+    @BindView(R.id.ll_menu_hr)
+    LinearLayout menuHR;
+    @BindView(R.id.ll_menu_supplier)
+    LinearLayout menuSupplier;
+    @BindView(R.id.ll_menu_equip)
+    LinearLayout menuEquip;
+    @BindView(R.id.ll_menu_document)
+    LinearLayout menuDocument;
+
+
+    private MainFragmentContractor.MainFragmentPresenter mPresenter;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +77,13 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initFragment() {
+        setPresenter(new MainFragmentPresenterImpl(this));
+        initClickListener();
+        mPresenter.initNoticeList(mainRecyclerView, ptrLayout);
+
+    }
+
+    private void initClickListener() {
         alarmIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,9 +121,105 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 ToastUtil.showToast("点击了扫描!");
-
             }
         });
-        OverScrollDecoratorHelper.setUpOverScroll(contentScrollView);
+        ptrLayout.setRefreshListener(new BaseRefreshListener() {
+            @Override
+            public void refresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // 结束刷新
+                        ptrLayout.finishRefresh();
+                    }
+                }, 2000);
+            }
+
+            @Override
+            public void loadMore() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // 结束刷新
+                        ptrLayout.finishLoadMore();
+                    }
+                }, 2000);
+            }
+        });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mainRecyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    LogUtil.debugLog("scrollX:" + scrollX + "; scrollY:" + scrollY + "; oldScrollX:" + oldScrollX + "; oldScrollY:" + oldScrollY);
+                }
+            });
+        } else {
+            mainRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                    super.onScrollStateChanged(recyclerView, newState);
+                    //LogUtil.debugLog("上层Height:" + buttonGroupLayout.getWidgeHeight());
+                    //LogUtil.debugLog("下层Height:" + menuGroupLayout.getWidgeHeight());
+                    menuGroupLayout.setCollapseEnable();
+                }
+
+                @Override
+                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                    super.onScrolled(recyclerView, dx, dy);
+                    menuGroupLayout.changeWidgeHeight((int) mPresenter.getFirstChildY());
+                }
+            });
+        }
+        menuProject.setOnClickListener(this);
+        menuDocument.setOnClickListener(this);
+        menuCustomer.setOnClickListener(this);
+        menuEquip.setOnClickListener(this);
+        menuFinance.setOnClickListener(this);
+        menuHR.setOnClickListener(this);
+        menuSupplier.setOnClickListener(this);
+        menuMeeting.setOnClickListener(this);
+    }
+
+    @Override
+    public void setPresenter(MainFragmentContractor.MainFragmentPresenter presenter) {
+        mPresenter = presenter;
+    }
+
+    @Override
+    public Context getActivityContext() {
+        return getContext();
+    }
+
+    @Override
+    public void onClick(View v) {
+        ToastUtil.showToast("点击的项目:" + v.getId());
+        switch (v.getId()) {
+            case R.id.ll_menu_project:
+
+                break;
+            case R.id.ll_menu_meeting:
+
+                break;
+            case R.id.ll_menu_hr:
+
+                break;
+            case R.id.ll_menu_equip:
+
+                break;
+            case R.id.ll_menu_supplier:
+
+                break;
+            case R.id.ll_menu_finance:
+
+                break;
+            case R.id.ll_menu_document:
+
+                break;
+            case R.id.ll_menu_customer:
+
+                break;
+            default:
+                break;
+        }
     }
 }

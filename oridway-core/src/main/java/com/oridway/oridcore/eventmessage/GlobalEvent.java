@@ -9,12 +9,13 @@ public class GlobalEvent {
 
     public static final int WELCOME_PAGE_LOAD_COMPLETED = 1000;
     public static final int EXTERNAL_COMPONENTS_LOAD_COMPLETED = 1001;
+    public static final int CONTACT_WILL_EXPAND = 1002;
 
     public int eventType;
     public String eventMessage;
     public Object eventBody;
 
-    public static GlobalEvent newEvent(int eventType){
+    public static GlobalEvent newEvent(int eventType) {
         return new GlobalEvent(eventType);
     }
 
