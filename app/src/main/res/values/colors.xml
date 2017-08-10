@@ -19,4 +19,13 @@
     <color name="alittleGray">#C9C9C9</color>
     <color name="translucent">#00FFFFFF</color>
 
+    <color name="materialBlue">#2196FC</color>
+    <color name="materialRed">#FF5722</color>
+    <color name="materialPurple">#9C27B0</color>
+    <color name="materialGreen">#0096BB</color>
+    <color name="materialGreen2">#259B24</color>
+    <color name="materialYellow">#FFEB3B</color>
+    <color name="materialBrown">#795548</color>
+    <color name="materialAmber">#FFC107</color>
+
 </resources>
