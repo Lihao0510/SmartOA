@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,9 +11,518 @@
         android:layout_height="21dp"
         android:background="@color/colorPrimary" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="个人中心" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@color/colorPrimary" />
+
+        <ScrollView
+            android:id="@+id/sv_center_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/colorPrimary">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/civ_center_head"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="centerCrop"
+                        app:civ_border_color="@color/grey"
+                        app:civ_border_width="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_center_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="30dp"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h1"
+                        app:layout_constraintLeft_toRightOf="@+id/civ_center_head"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_center_career"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/civ_center_head"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_center_name"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/tv_center_department"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h3"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_center_career"
+                        app:layout_constraintLeft_toRightOf="@+id/civ_center_head"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_center_name" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:id="@+id/itv_center_setting"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:text="{icon-settings}"
+                        android:textColor="@color/selector_icon_button"
+                        android:textSize="@dimen/icon_small"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:id="@+id/itv_center_quit"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="{icon-power}"
+                        android:textColor="@color/selector_icon_button"
+                        android:textSize="@dimen/icon_small"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/itv_center_setting"
+                        app:layout_constraintVertical_bias="0.352" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@color/pureWhite"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_center_backlog"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_background_whitebutton"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_center_backlog_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="0"
+                            android:textColor="@color/pureBlack"
+                            android:textSize="@dimen/icon_small" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="待办事项"
+                            android:textColor="@color/dimBar"
+                            android:textSize="@dimen/font_middle" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="2" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_center_myproject"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_background_whitebutton"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_center_myproject_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="0"
+                            android:textColor="@color/pureBlack"
+                            android:textSize="@dimen/icon_small" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="我的项目"
+                            android:textColor="@color/dimBar"
+                            android:textSize="@dimen/font_middle" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="2" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_center_myapply"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_background_whitebutton"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_center_myapply_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="0"
+                            android:textColor="@color/pureBlack"
+                            android:textSize="@dimen/icon_small" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="我的申请"
+                            android:textColor="@color/dimBar"
+                            android:textSize="@dimen/font_middle" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/itsWhite" />
+
+                <LinearLayout
+                    android:id="@+id/ll_center_mymessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/selector_background_whitebutton"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/bg_button_conner_red"
+                        android:gravity="center"
+                        android:text="{icon-user}"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="我的资料"
+                        android:textColor="@color/deepDark"
+                        android:textSize="@dimen/font_h3" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:text="{ion-ios-arrow-right}"
+                        android:textColor="@color/littleGray"
+                        android:textSize="@dimen/icon_normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/alittleGray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_center_clockin"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/selector_background_whitebutton"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/bg_button_conner_blue"
+                        android:gravity="center"
+                        android:text="{icon-note}"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="我的考勤"
+                        android:textColor="@color/deepDark"
+                        android:textSize="@dimen/font_h3" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:text="{ion-ios-arrow-right}"
+                        android:textColor="@color/littleGray"
+                        android:textSize="@dimen/icon_normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/alittleGray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_center_travel"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/selector_background_whitebutton"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/bg_button_conner_yellow"
+                        android:gravity="center"
+                        android:text="{icon-plane}"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="我的行程"
+                        android:textColor="@color/deepDark"
+                        android:textSize="@dimen/font_h3" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:text="{ion-ios-arrow-right}"
+                        android:textColor="@color/littleGray"
+                        android:textSize="@dimen/icon_normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/alittleGray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_center_diary"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/selector_background_whitebutton"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/bg_button_conner_green"
+                        android:gravity="center"
+                        android:text="{icon-tag}"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="工作便笺"
+                        android:textColor="@color/deepDark"
+                        android:textSize="@dimen/font_h3" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:text="{ion-ios-arrow-right}"
+                        android:textColor="@color/littleGray"
+                        android:textSize="@dimen/icon_normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/itsWhite" />
+
+                <LinearLayout
+                    android:id="@+id/ll_center_notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/selector_background_whitebutton"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/bg_button_conner_amber"
+                        android:gravity="center"
+                        android:text="{icon-volume-2}"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="我的通知"
+                        android:textColor="@color/deepDark"
+                        android:textSize="@dimen/font_h3" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:text="{ion-ios-arrow-right}"
+                        android:textColor="@color/littleGray"
+                        android:textSize="@dimen/icon_normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/alittleGray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_center_mydepartment"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/selector_background_whitebutton"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/bg_button_conner_purple"
+                        android:gravity="center"
+                        android:text="{icon-home}"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/font_h2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="我的部门"
+                        android:textColor="@color/deepDark"
+                        android:textSize="@dimen/font_h3" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:text="{ion-ios-arrow-right}"
+                        android:textColor="@color/littleGray"
+                        android:textSize="@dimen/icon_normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="55dp" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
 
 </LinearLayout>
