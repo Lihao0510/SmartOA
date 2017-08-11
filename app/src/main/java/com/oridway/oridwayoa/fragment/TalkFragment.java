@@ -100,8 +100,8 @@ public class TalkFragment extends BaseFragment implements TalkFragmentContractor
 
     private void initViewPager() {
         viewList = new ArrayList<>();
-        dialogView = LayoutInflater.from(getContext()).inflate(R.layout.view_talk_dialog, null);
-        contactView = LayoutInflater.from(getContext()).inflate(R.layout.view_talk_contact, null);
+        dialogView = LayoutInflater.from(getContext()).inflate(R.layout.view_talk_dialog, viewPager, false);
+        contactView = LayoutInflater.from(getContext()).inflate(R.layout.view_talk_contact, viewPager, false);
         viewList.add(dialogView);
         viewList.add(contactView);
         pagerAdapter = new TalkPagerAdapter(getContext(), viewList);

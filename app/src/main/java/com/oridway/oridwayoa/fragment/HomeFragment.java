@@ -14,10 +14,12 @@ import android.widget.LinearLayout;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.jwenfeng.library.pulltorefresh.BaseRefreshListener;
 import com.jwenfeng.library.pulltorefresh.PullToRefreshLayout;
+import com.oridway.oridcore.utils.ConfigUtil;
 import com.oridway.oridcore.utils.LogUtil;
 import com.oridway.oridcore.utils.ToastUtil;
 import com.oridway.oridcore.widge.CollapseLayout;
 import com.oridway.oridwayoa.R;
+import com.oridway.oridwayoa.activity.ManageTreeActivity;
 import com.oridway.oridwayoa.contract.MainFragmentContractor;
 import com.oridway.oridwayoa.presenter.MainFragmentPresenterImpl;
 
@@ -195,27 +197,34 @@ public class HomeFragment extends BaseFragment implements MainFragmentContractor
         ToastUtil.showToast("点击的项目:" + v.getId());
         switch (v.getId()) {
             case R.id.ll_menu_project:
-
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.PROJECT_MANAGE);
                 break;
             case R.id.ll_menu_meeting:
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.MEETING_MANAGE);
 
                 break;
             case R.id.ll_menu_hr:
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.HR_MANAGE);
 
                 break;
             case R.id.ll_menu_equip:
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.EQUIP_MANAGE);
 
                 break;
             case R.id.ll_menu_supplier:
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.SUPPLYER_MANAGE);
 
                 break;
             case R.id.ll_menu_finance:
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.FINANCE_MANAGE);
 
                 break;
             case R.id.ll_menu_document:
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.DOCUMENT_MANAGE);
 
                 break;
             case R.id.ll_menu_customer:
+                ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.CUSTOMER_MANAGE);
 
                 break;
             default:

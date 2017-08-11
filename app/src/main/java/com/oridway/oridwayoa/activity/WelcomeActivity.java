@@ -16,6 +16,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.jpush.android.api.JPushInterface;
 
 public class WelcomeActivity extends BaseActivity {
 
@@ -30,12 +31,14 @@ public class WelcomeActivity extends BaseActivity {
     protected void initActivity() {
         LogUtil.debugLog("welcomeActivityShow");
         initWelcomeEvents();
+        EventBus.getDefault().register(this);
         EventBus.getDefault().post(GlobalEvent.newEvent(GlobalEvent.WELCOME_PAGE_LOAD_COMPLETED));
 
     }
 
     private void initWelcomeEvents() {
         int launchTimes = PrefUtil.getIntProperty(getApplicationContext(), PREF_NAME, "LaunchTimes");
+
         if (launchTimes == 0) {
             LogUtil.debugLog("这是第一次登录,需要加载引导页!");
         } else {
@@ -56,5 +59,11 @@ public class WelcomeActivity extends BaseActivity {
         if (event.eventType == GlobalEvent.EXTERNAL_COMPONENTS_LOAD_COMPLETED) {
             LogUtil.debugLog("goMainActivity");
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

@@ -1,8 +1,7 @@
 package com.oridway.oridcore.utils;
 
+import android.content.Context;
 import android.widget.Toast;
-
-import com.oridway.oridcore.application.CoreApplication;
 
 /**
  * Created by lihao on 2017/8/1.
@@ -10,7 +9,10 @@ import com.oridway.oridcore.application.CoreApplication;
 
 public class ToastUtil {
 
+    public static Context appContext;
+
     public static void showToast(String msg) {
-        Toast.makeText(CoreApplication.getGlobalContext(), msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(appContext, msg, Toast.LENGTH_SHORT).show();
     }
+
 }

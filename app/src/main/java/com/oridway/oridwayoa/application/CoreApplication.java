@@ -1,4 +1,4 @@
-package com.oridway.oridcore.application;
+package com.oridway.oridwayoa.application;
 
 import android.app.Application;
 import android.content.Context;
@@ -15,10 +15,10 @@ import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
 import com.joanzapata.iconify.fonts.TypiconsModule;
 import com.joanzapata.iconify.fonts.WeathericonsModule;
 import com.oridway.oridcore.eventmessage.GlobalEvent;
-import com.oridway.oridcore.exception.CrashHandler;
-import com.oridway.oridcore.icon.SmartIconModule;
 import com.oridway.oridcore.utils.AssetUtil;
+import com.oridway.oridcore.utils.ConfigUtil;
 import com.oridway.oridcore.utils.LogUtil;
+import com.oridway.oridcore.utils.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -26,6 +26,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.HashMap;
 
+import cn.jpush.android.api.JPushInterface;
 import io.realm.Realm;
 
 /**
@@ -54,6 +55,8 @@ public class CoreApplication extends Application {
         if (event.eventType == GlobalEvent.WELCOME_PAGE_LOAD_COMPLETED) {
             LogUtil.debugLog("initThirdPartyUtil");
             Realm.init(applicationContext);
+            JPushInterface.setDebugMode(true);
+            JPushInterface.init(this);
             Iconify.with(new FontAwesomeModule())
                     .with(new EntypoModule())
                     .with(new TypiconsModule())
@@ -76,8 +79,9 @@ public class CoreApplication extends Application {
 
     private void initLocalSetting() {
         EventBus.getDefault().register(this);
-        appProperties = new HashMap<>();
+        appProperties = ConfigUtil.getDefaultMap();
         applicationContext = getApplicationContext();
+        ToastUtil.appContext = applicationContext;
         AssetUtil.loadPropsFromAsset(applicationContext, "app_env.properties", appProperties);
         LogUtil.debugLog("initLocalSettingFinished");
     }

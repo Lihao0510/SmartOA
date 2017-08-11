@@ -1,6 +1,7 @@
 package com.oridway.oridcore.network;
 
-import com.oridway.oridcore.application.CoreApplication;
+import com.oridway.oridcore.utils.ConfigUtil;
+import com.oridway.oridcore.utils.LogUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -39,17 +40,18 @@ public class RetrofitManager {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        if (CoreApplication.getAppConfig("IsRelease").equals("false")) {
+        LogUtil.debugLog(ConfigUtil.getDefaultMap().toString());
+        if (ConfigUtil.getDefaultMap().get("IsRelease").equals("false")) {
             builder.addInterceptor(loggingInterceptor);
         }
-        builder.connectTimeout(15, TimeUnit.SECONDS);
+        builder.connectTimeout(5, TimeUnit.SECONDS);
         builder.readTimeout(20, TimeUnit.SECONDS);
         builder.writeTimeout(20, TimeUnit.SECONDS);
         builder.retryOnConnectionFailure(true);
         OkHttpClient client = builder.build();
 
         mRetrofit = new Retrofit.Builder()
-                .baseUrl(CoreApplication.getAppConfig("BaseHttpUrl"))
+                .baseUrl(ConfigUtil.getDefaultMap().get("BaseHttpUrl"))
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(client)

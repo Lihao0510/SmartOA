@@ -17,7 +17,7 @@ public class AssetUtil {
 
     // 从assets 文件夹中获取文件并读取数据
     public static void loadPropsFromAsset(Context context, String fileName, Map<String, String> propertyMap) {
-
+        propertyMap.clear();
         Properties properties = new Properties();
         InputStream in = null;
 

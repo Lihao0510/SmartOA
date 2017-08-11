@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/colorPrimary">
+
+    <com.joanzapata.iconify.widget.IconTextView
+        android:id="@+id/itv_toolbar_back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:gravity="center"
+        android:text="{entypo-chevron-left}"
+        android:textColor="@color/selector_icon_button"
+        android:textSize="@dimen/icon_large" />
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="标题"
+        android:textColor="@color/pureWhite"
+        android:textSize="@dimen/font_h1" />
+
+</RelativeLayout>
