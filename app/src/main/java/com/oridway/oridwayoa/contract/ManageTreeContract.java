@@ -18,6 +18,8 @@ public interface ManageTreeContract {
     interface ManageTreePresenter {
         void init();
 
+        void buildTreeData(String treeType);
+
         void initManageList(RecyclerView manageList);
     }
 }

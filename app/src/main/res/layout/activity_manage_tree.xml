@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/pureWhite"
     tools:context="com.oridway.oridwayoa.activity.ManageTreeActivity">
 
     <View
@@ -14,11 +15,17 @@
 
     <include layout="@layout/group_toolbar" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_manage_tree"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_manage_tree"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+    </FrameLayout>
 
 </LinearLayout>

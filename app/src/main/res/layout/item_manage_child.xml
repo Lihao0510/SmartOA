@@ -4,7 +4,7 @@
     android:layout_height="60dp"
     android:background="@drawable/selector_background_whitebutton"
     android:gravity="center_vertical"
-    android:orientation="horizental">
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/iv_manage_lefticon"

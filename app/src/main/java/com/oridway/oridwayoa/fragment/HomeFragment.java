@@ -194,7 +194,6 @@ public class HomeFragment extends BaseFragment implements MainFragmentContractor
 
     @Override
     public void onClick(View v) {
-        ToastUtil.showToast("点击的项目:" + v.getId());
         switch (v.getId()) {
             case R.id.ll_menu_project:
                 ManageTreeActivity.startActivity(getActivityContext(), ConfigUtil.PROJECT_MANAGE);

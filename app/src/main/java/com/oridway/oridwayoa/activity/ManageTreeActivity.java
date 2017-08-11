@@ -56,39 +56,30 @@ public class ManageTreeActivity extends SwipeBackBaseActivity implements ManageT
         switch (manageType) {
             case ConfigUtil.PROJECT_MANAGE:
                 toolbarTitle.setText("项目管理");
-
                 break;
             case ConfigUtil.MEETING_MANAGE:
                 toolbarTitle.setText("会议管理");
-
                 break;
             case ConfigUtil.CUSTOMER_MANAGE:
                 toolbarTitle.setText("客户管理");
-
                 break;
             case ConfigUtil.FINANCE_MANAGE:
                 toolbarTitle.setText("财务管理");
-
                 break;
             case ConfigUtil.HR_MANAGE:
                 toolbarTitle.setText("人事管理");
-
                 break;
             case ConfigUtil.SUPPLYER_MANAGE:
                 toolbarTitle.setText("供应商管理");
-
                 break;
             case ConfigUtil.EQUIP_MANAGE:
                 toolbarTitle.setText("设备管理");
-
                 break;
             case ConfigUtil.DOCUMENT_MANAGE:
                 toolbarTitle.setText("文档管理");
-
                 break;
         }
-
-
+        mPresenter.buildTreeData(manageType);
     }
 
     private void initClickListener() {
