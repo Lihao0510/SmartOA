@@ -2,8 +2,6 @@ package com.oridway.oridwayoa.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -11,12 +9,12 @@ import android.widget.TextView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.oridway.oridcore.utils.ConfigUtil;
 import com.oridway.oridwayoa.R;
-import com.oridway.oridwayoa.contract.ManageTreeContract;
+import com.oridway.oridwayoa.contract.ManageTreeContractor;
 import com.oridway.oridwayoa.presenter.ManageTreePresenterImpl;
 
 import butterknife.BindView;
 
-public class ManageTreeActivity extends SwipeBackBaseActivity implements ManageTreeContract.ManageTreeView, View.OnClickListener {
+public class ManageTreeActivity extends SwipeBackBaseActivity implements ManageTreeContractor.ManageTreeView, View.OnClickListener {
 
     private static final String MANAGE_TYPE = "MANAGE_TYPE";
 
@@ -27,7 +25,7 @@ public class ManageTreeActivity extends SwipeBackBaseActivity implements ManageT
     @BindView(R.id.rv_manage_tree)
     RecyclerView manageTree;
 
-    private ManageTreeContract.ManageTreePresenter mPresenter;
+    private ManageTreeContractor.ManageTreePresenter mPresenter;
     private String manageType;
 
 
@@ -98,7 +96,7 @@ public class ManageTreeActivity extends SwipeBackBaseActivity implements ManageT
     }
 
     @Override
-    public void setPresenter(ManageTreeContract.ManageTreePresenter presenter) {
+    public void setPresenter(ManageTreeContractor.ManageTreePresenter presenter) {
         mPresenter = presenter;
     }
 

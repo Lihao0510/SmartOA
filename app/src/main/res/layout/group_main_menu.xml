@@ -2,6 +2,7 @@
 <com.oridway.oridcore.widge.CollapseLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_button_box"
+    android:background="@color/pureWhite"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">

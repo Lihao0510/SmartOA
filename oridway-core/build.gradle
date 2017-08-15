@@ -63,4 +63,5 @@ dependencies {
     compile 'com.jwenfeng.pulltorefresh:library:1.2.5'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
+    compile 'com.mylhyl:zxingscanner:1.5.0'
 }

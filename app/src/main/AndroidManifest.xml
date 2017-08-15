@@ -3,6 +3,7 @@
     package="com.oridway.oridwayoa">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -38,6 +39,10 @@
             android:name=".activity.ManageTreeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TransluteActivityTheme" />
+        <activity
+            android:name=".activity.MailListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransluteActivityTheme" />
 
         <meta-data
             android:name="UMENG_APPKEY"
@@ -46,6 +51,7 @@
             android:name="UMENG_CHANNEL"
             android:value="LihaoLocalTest" />
 
+        <activity android:name=".activity.ScanActivity"></activity>
     </application>
 
 </manifest>

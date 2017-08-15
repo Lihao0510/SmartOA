@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oridway.oridwayoa.activity.ScanActivity">
+
+    <com.mylhyl.zxing.scanner.ScannerView
+        android:id="@+id/sv_scanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.mylhyl.zxing.scanner.ScannerView>
+
+</FrameLayout>

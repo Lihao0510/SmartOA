@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.joanzapata.iconify.widget.IconTextView;
 import com.jwenfeng.library.pulltorefresh.BaseRefreshListener;
@@ -20,8 +21,12 @@ import com.oridway.oridcore.utils.ToastUtil;
 import com.oridway.oridcore.widge.CollapseLayout;
 import com.oridway.oridwayoa.R;
 import com.oridway.oridwayoa.activity.ManageTreeActivity;
+import com.oridway.oridwayoa.activity.ScanActivity;
 import com.oridway.oridwayoa.contract.MainFragmentContractor;
 import com.oridway.oridwayoa.presenter.MainFragmentPresenterImpl;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 
@@ -31,6 +36,8 @@ import butterknife.BindView;
 
 public class HomeFragment extends BaseFragment implements MainFragmentContractor.MainFragmentView, View.OnClickListener {
 
+    @BindView(R.id.tv_date)
+    TextView dateTime;
     @BindView(R.id.icon_alarm)
     IconTextView alarmIcon;
     @BindView(R.id.icon_scan)
@@ -80,22 +87,40 @@ public class HomeFragment extends BaseFragment implements MainFragmentContractor
     @Override
     protected void initFragment() {
         setPresenter(new MainFragmentPresenterImpl(this));
+        initDateTime();
         initClickListener();
+
         mPresenter.initNoticeList(mainRecyclerView, ptrLayout);
 
+    }
+
+    private void initDateTime() {
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int weekDay = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        String[] weekDayLine = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+        LogUtil.debugLog("当前时间:" + year + "年" + month + "月" + day + "日" + weekDay + "星期");
+        String timeLine = "" + year + "年" + month + "月" + day + "日  " + weekDayLine[weekDay];
+        dateTime.setText(timeLine);
     }
 
     private void initClickListener() {
         alarmIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonGroupLayout.setVisibility(View.GONE);
+                ScanActivity.startActivity(getActivityContext());
+
             }
         });
         scanIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonGroupLayout.setVisibility(View.VISIBLE);
+                ScanActivity.startActivity(getActivityContext());
+
             }
         });
         buttonDaka.setOnClickListener(new View.OnClickListener() {

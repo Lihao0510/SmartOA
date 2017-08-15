@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pureWhite"
     android:orientation="vertical"
-    tools:context="com.oridway.oridwayoa.activity.ManageTreeActivity">
+    tools:context="com.oridway.oridwayoa.activity.MailListActivity">
 
     <View
         android:layout_width="match_parent"
@@ -15,17 +14,19 @@
 
     <include layout="@layout/group_toolbar" />
 
-    <FrameLayout
+    <com.jwenfeng.library.pulltorefresh.PullToRefreshLayout
+        android:id="@+id/ptr_mail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="9dp">
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="10dp">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_manage_tree"
+            android:id="@+id/rv_mail_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
-    </FrameLayout>
+    </com.jwenfeng.library.pulltorefresh.PullToRefreshLayout>
 
 </LinearLayout>

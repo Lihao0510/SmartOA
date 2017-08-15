@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
  * Created by lihao on 2017/8/11.
  */
 
-public interface ManageTreeContract {
+public interface ManageTreeContractor {
 
     interface ManageTreeView {
         void setPresenter(ManageTreePresenter presenter);

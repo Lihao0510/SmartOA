@@ -24,16 +24,17 @@
             android:textSize="@dimen/font_h2" />
 
         <com.joanzapata.iconify.widget.IconTextView
-            android:id="@+id/itv_mail_new"
+            android:id="@+id/itv_mail_refresh"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="{icon-paper-plane}"
+            android:paddingTop="5dp"
+            android:text="{icon-cloud-download}"
             android:textColor="@color/selector_icon_button"
-            android:textSize="@dimen/icon_small" />
+            android:textSize="@dimen/icon_normal" />
 
     </RelativeLayout>
 
@@ -254,6 +255,55 @@
                     android:layout_marginLeft="16dp"
                     android:background="@color/alittleGray" />
 
+
+                <LinearLayout
+                    android:id="@+id/ll_mail_draft"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/selector_background_whitebutton"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/bg_button_conner_blue"
+                        android:gravity="center"
+                        android:text="{icon-doc}"
+                        android:textColor="@color/pureWhite"
+                        android:textSize="@dimen/icon_small" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="草稿箱"
+                        android:textColor="@color/darkBlack"
+                        android:textSize="@dimen/font_h2" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:text="{ion-ios-arrow-right}"
+                        android:textColor="@color/littleGray"
+                        android:textSize="@dimen/icon_normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/alittleGray" />
+
                 <LinearLayout
                     android:id="@+id/ll_mail_contact"
                     android:layout_width="match_parent"
@@ -266,7 +316,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="16dp"
-                        android:background="@drawable/bg_button_conner_blue"
+                        android:background="@drawable/bg_button_conner_purple"
                         android:gravity="center"
                         android:text="{icon-users}"
                         android:textColor="@color/pureWhite"
@@ -297,60 +347,21 @@
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_marginLeft="16dp"
-                    android:background="@color/alittleGray" />
-
-                <LinearLayout
-                    android:id="@+id/ll_mail_draft"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/selector_background_whitebutton"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <com.joanzapata.iconify.widget.IconTextView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="16dp"
-                        android:background="@drawable/bg_button_conner_purple"
-                        android:gravity="center"
-                        android:text="{icon-lock}"
-                        android:textColor="@color/pureWhite"
-                        android:textSize="@dimen/icon_small" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:text="密送邮件"
-                        android:textColor="@color/darkBlack"
-                        android:textSize="@dimen/font_h2" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:layout_weight="1" />
-
-                    <com.joanzapata.iconify.widget.IconTextView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginRight="16dp"
-                        android:gravity="center"
-                        android:text="{ion-ios-arrow-right}"
-                        android:textColor="@color/littleGray"
-                        android:textSize="@dimen/icon_normal" />
-
-                </LinearLayout>
-
-                <View
                     android:layout_width="1dp"
                     android:layout_height="180dp" />
 
             </LinearLayout>
 
         </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_mail_new"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_fankui" />
     </FrameLayout>
 
 

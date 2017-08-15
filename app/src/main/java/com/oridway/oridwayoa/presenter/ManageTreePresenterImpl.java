@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.oridway.oridcore.utils.ConfigUtil;
 import com.oridway.oridwayoa.R;
 import com.oridway.oridwayoa.adapter.ManageTreeAdapter;
-import com.oridway.oridwayoa.contract.ManageTreeContract;
+import com.oridway.oridwayoa.contract.ManageTreeContractor;
 import com.oridway.oridwayoa.entity.ManageChildNode;
 import com.oridway.oridwayoa.entity.ManageFatherNode;
 
@@ -20,14 +20,14 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
  * Created by lihao on 2017/8/11.
  */
 
-public class ManageTreePresenterImpl implements ManageTreeContract.ManageTreePresenter {
+public class ManageTreePresenterImpl implements ManageTreeContractor.ManageTreePresenter {
 
-    private ManageTreeContract.ManageTreeView mView;
+    private ManageTreeContractor.ManageTreeView mView;
     private LinearLayoutManager layoutManager;
     private ManageTreeAdapter mAdapter;
     private List<MultiItemEntity> treeItemList;
 
-    public ManageTreePresenterImpl(ManageTreeContract.ManageTreeView view) {
+    public ManageTreePresenterImpl(ManageTreeContractor.ManageTreeView view) {
         this.mView = view;
         init();
     }
